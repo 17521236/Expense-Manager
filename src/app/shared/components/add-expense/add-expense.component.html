@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="save()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center font-weight-bold">Add Expense</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding-vertical">
+  <!-- amount -->
+  <div class="ion-margin-top">
+    <ion-title class="font-weight-bold ">Amount</ion-title>
+    <ion-item class="ion-margin">
+      <ion-input type="number" placeholder="Enter ..." autofocus></ion-input>
+      <ion-card-subtitle>vnđ</ion-card-subtitle>
+    </ion-item>
+  </div>
+  <!-- date time -->
+  <div class="ion-margin-top ion-padding-top">
+    <ion-title class="font-weight-bold ">Transaction Date</ion-title>
+    <ion-item class="ion-margin">
+      <ion-label position="floating">DD/MM/YYYY</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" min="1994-03-14" max="2012-12-09"
+        [value]="newTransaction.time.toDateString()"></ion-datetime>
+    </ion-item>
+  </div>
+ 
+  <!-- category -->
+  <div class="ion-margin-top ion-padding-top">
+    <ion-title class="font-weight-bold">Select Category</ion-title>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="newspaper-outline" size="large"></ion-icon>
+              <ion-card-title>Bills</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="fast-food-outline" size="large"></ion-icon>
+              <ion-card-title>Food</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="woman-outline" size="large"></ion-icon>
+              <ion-card-title>Clothes</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="car-outline" size="large"></ion-icon>
+              <ion-card-title>Transport</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="happy-outline" size="large"></ion-icon>
+              <ion-card-title>Fun</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card>
+            <ion-card-content class="ion-text-center">
+              <ion-icon name="ellipsis-horizontal-outline" size="large"></ion-icon>
+              <ion-card-title>Other</ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- More Details -->
+  <div class="ion-margin-top">
+    <ion-title class="font-weight-bold">More Details</ion-title>
+    <ion-item class="ion-margin">
+      <ion-textarea rows="10" placeholder="Enter more information here..."></ion-textarea>
+    </ion-item>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ion-content>

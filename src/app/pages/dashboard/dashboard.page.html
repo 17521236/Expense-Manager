@@ -1,0 +1,108 @@
+<ion-header class="ion-no-border">
+  <div class="background ion-padding-bottom">
+    <!-- header -->
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center font-weight-bold">Home</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <!-- filter day -->
+    <ion-toolbar>
+      <ion-title slot="start" size="small">April, 2018</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <ion-toolbar>
+      <div class="ion-margin-horizontal ion-margin-bottom overlay">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col style="border-right: 1px rgba(255, 255, 255, 0.15) solid">
+
+              <div class="ion-padding-top">
+                <ion-buttons>
+                  <ion-button>
+                    <ion-icon slot="icon-only" name="wallet-outline"></ion-icon>
+                  </ion-button>
+                  <ion-text>
+                    <h6 class="font-smaller">Tiền Mặt</h6>
+                  </ion-text>
+                </ion-buttons>
+                <ion-text class="ion-text-center">
+                  <h4 class="font-weight-bold"> 48,752,000 </h4>
+                </ion-text>
+              </div>
+
+            </ion-col>
+            <ion-col>
+              <div class="ion-padding-bottom ion-padding-start">
+                <ion-text class="ion-text-start">
+                  <h6 class="font-smaller">Tổng tiền: </h6>
+                  <span class="font-weight-bold ion-padding-start"> 50,000,000 </span>
+                </ion-text>
+                <ion-text class="ion-text-start">
+                  <h6 class="font-smaller">Tổng chi phí: </h6>
+
+                </ion-text>
+                <ion-text class="ion-text-end">
+                  <span class="font-weight-bold  ion-padding-start"> 43,300,000 </span>
+
+                </ion-text>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+      </div>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-item class="font-smaller " sticky="true">
+  <ion-label>
+    Latest Transaction
+  </ion-label>
+  <a href="#">View all</a>
+</ion-item>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor="let record of transactionList">
+      <ion-avatar slot="start">
+        <img src="../../../assets/icons/banking.svg">
+      </ion-avatar>
+      <ion-label>
+        <h3 class="font-weight-bold">Bank Transfer</h3>
+        <p class="ion-text-nowrap">{{record.notes}}</p>
+      </ion-label>
+      <ion-label slot="end" class=" ion-text-end">
+        <h3 class="font-weight-bold" [style.color]="record.amount > 0 ? '#00B00C':'#F13636'">{{record.amount}}</h3>
+        <p>{{record.time | date :'mediumDate'}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+  <!-- btn add -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="presentModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- end btn add -->
+</ion-content>

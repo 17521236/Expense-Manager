@@ -1,0 +1,44 @@
+ion-header {
+  --color: white;
+  .background {
+    color: white !important;
+    background: linear-gradient(
+      0deg,
+      rgba(119, 25, 218, 1) 0%,
+      rgba(165, 34, 194, 1) 47%,
+      rgba(190, 38, 180, 1) 100%
+    );
+
+    ion-toolbar {
+      --background: transparent;
+      --color: white;
+
+      .overlay {
+        display: block;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px rgba(255, 255, 255, 0.1) solid;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+
+.item-inner{
+    border: none !important;
+}
+.font-weight-bold {
+  font-weight: bold !important;
+}
+
+.font-smaller {
+  font-size: smaller;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited{
+    color: var(--color);
+}
