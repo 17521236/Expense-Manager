@@ -1,7 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import * as moment from 'moment';
+import { tap } from 'rxjs/operators';
 import { CreateExpense, Transaction } from 'src/app/models/transaction.model';
-import { TransactionService } from 'src/app/services/transaction.service';
+import { AuthService } from '../../service/auth.service';
+import { BillService } from '../../service/bill.service';
+import { PaymentMethodComponent } from '../payment-method/payment-method.component';
 
 @Component({
   selector: 'app-add-expense',
@@ -10,41 +14,33 @@ import { TransactionService } from 'src/app/services/transaction.service';
 })
 export class AddExpenseComponent implements OnInit {
 
-  pickerOptions: any;
-  newTransaction: CreateExpense;
-
-
-  constructor(private modalController: ModalController, private _transactionService: TransactionService) {
-    this.pickerOptions = {
-      buttons: [{
-        text: 'Save',
-        handler: () => { }
-      }, {
-        text: 'Cancel',
-        handler: () => {
-          return false;
-        }
-      }]
-    }
+  data;
+  block;
+  apt;
+  constructor(private modalController: ModalController, private billService: BillService, private authService: AuthService) {
   }
 
+  details$;
+
   ngOnInit() {
-    this.newTransaction = {
-      amount: 0,
-      _categoryId: '',
-      notes: '',
-      time: new Date(),
-      _balanceId: ''
-    }
+    this.details$ = this.billService.getOne(this.data._id);
   }
 
   cancel() {
     this.modalController.dismiss().then().catch();
   }
 
-  save() {
-    
-   }
-
-  
+  moment = moment;
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: PaymentMethodComponent,
+      componentProps: {
+        data: this.data,
+        block: this.block,
+        apt: this.apt,
+        pmId: '1'
+      }
+    });
+    return await modal.present();
+  }
 }

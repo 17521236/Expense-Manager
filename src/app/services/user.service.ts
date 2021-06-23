@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { WebRequestService } from './web-request.service';
+import { API } from '../core/api.config';
+import { HttpService } from '../shared/service/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private webReqService: WebRequestService) { }
-
-  register(user): Observable<any> {
-    return this.webReqService.post('api/users', user);
-  }
+  constructor(private http: HttpService) { }
 
   login(user) {
-
+    return this.http.sendToServer("POST", API.RESIDENT.LOGIN, user);
+  }
+  resetPassword(email) {
+    return this.http.sendToServer("POST", API.RESIDENT_ACCOUNT.RESET_PASS_BY_EMAIL, {email});
   }
 }

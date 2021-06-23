@@ -1,0 +1,32 @@
+<ion-content class="ion-padding" style="--background: white; padding: 24px;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
+    </ion-buttons>
+    <!-- <ion-title>Back</ion-title> -->
+  </ion-toolbar>
+  <div class="title-1 mb-32 mt-16 text-center">Danh sách Block</div>
+  <form [formGroup]="tableHelper.filterForm" (submit)="tableHelper.next()">
+    <div class="d-flex px-16 mb-16">
+      <app-input class="mr-16"  [label]="'Tên'" formControlName="searchText"
+        [placeholder]="'Seach by Name'"></app-input>
+      <button type="submit" hidden></button>
+      <div class="ml-auto d-flex ai-end">
+        <i class='bx bx-refresh pointer refresh' style="font-size: 48px;" (click)="refreshFilter()"></i>
+      </div>
+    </div>
+  </form>
+  <ng-container *ngIf="(result$|async) as result">
+    <ion-list>
+      <ion-item class="p-0" *ngFor="let i of result.items">
+        <ion-avatar class="avatar" slot="start">
+          <img src="../../../../assets/buildings.svg">
+        </ion-avatar>
+        <ion-label class="p-24 px-0 m-0">
+          <div class="medium-body-text fw-bold color-nets-blue mb-8">{{i.name}}</div>
+          <div class="body-text">{{i.description}}</div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</ion-content>

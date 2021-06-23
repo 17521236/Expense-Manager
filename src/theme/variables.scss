@@ -1,55 +1,29 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
 :root {
-  --ion-color-red-new: #e63946;
-  --ion-color-red-new-rgb: 230,57,70;
-  --ion-color-red-new-contrast: #ffffff;
-  --ion-color-red-new-contrast-rgb: 255,255,255;
-  --ion-color-red-new-shade: #ca323e;
-  --ion-color-red-new-tint: #e94d59;
+  --ion-color-primary: #0046AD;
+  --ion-color-primary-rgb: 0,70,173;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #003e98;
+  --ion-color-primary-tint: #1a59b5;
 }
 
-.ion-color-red-new {
-  --ion-color-base: var(--ion-color-red-new);
-  --ion-color-base-rgb: var(--ion-color-red-new-rgb);
-  --ion-color-contrast: var(--ion-color-red-new-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-red-new-contrast-rgb);
-  --ion-color-shade: var(--ion-color-red-new-shade);
-  --ion-color-tint: var(--ion-color-red-new-tint);
+.ion-color-primary {
+  --ion-color-base: var(--ion-color-primary);
+  --ion-color-base-rgb: var(--ion-color-primary-rgb);
+  --ion-color-contrast: var(--ion-color-primary-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb);
+  --ion-color-shade: var(--ion-color-primary-shade);
+  --ion-color-tint: var(--ion-color-primary-tint);
 }
-
 
 
 /** Ionic CSS Variables **/
 :root {
-  /** primary **/
-  // --ion-color-primary: #3880ff;
-  // --ion-color-primary-rgb: 56, 128, 255;
-  // --ion-color-primary-contrast: #ffffff;
-  // --ion-color-primary-contrast-rgb: 255, 255, 255;
-  // --ion-color-primary-shade: #3171e0;
-  // --ion-color-primary-tint: #4c8dff;
-
-  // --ion-color-primary: #BF26B4;
-  // --ion-color-primary-rgb: 191,38,180;
-  // --ion-color-primary-contrast: #ffffff;
-  // --ion-color-primary-contrast-rgb: 255,255,255;
-  // --ion-color-primary-shade: #a8219e;
-  // --ion-color-primary-tint: #c53cbc;
-  --ion-color-primary: #214FF1;
-  --ion-color-primary-rgb: 33,79,241;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #1d46d4;
-  --ion-color-primary-tint: #3761f2;
-
-  // --ion-color-primary: #A923C0;
-  // --ion-color-primary-rgb: 169,35,192;
-  // --ion-color-primary-contrast: #ffffff;
-  // --ion-color-primary-contrast-rgb: 255,255,255;
-  // --ion-color-primary-shade: #951fa9;
-  // --ion-color-primary-tint: #b239c6;
+  
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;

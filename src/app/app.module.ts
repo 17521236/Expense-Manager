@@ -10,11 +10,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+    ToastrModule.forRoot(
+      {
+        timeOut: 3000,
+        positionClass: 'toast-bottom-center',
+        preventDuplicates: true,
+      }
+    ),
+    BrowserAnimationsModule],
   providers: [
     StatusBar,
     SplashScreen,

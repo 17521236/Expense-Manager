@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { interval } from 'rxjs';
+import { ROUTER_CONST } from 'src/app/core/router.config';
+import { AuthService, User } from 'src/app/shared/service/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,26 +13,38 @@ import { UserService } from 'src/app/services/user.service';
 
 export class AuthPage implements OnInit {
 
-  pageIndex = 0;// 0: form singIn   1: form register 
+  pending = false;
+  action = 1;;
+  form: FormGroup = this.fb.group({
+    email: "",
+    password: ""
+  })
 
-  user: User = new User();
-  constructor(private userService: UserService) { }
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-
+    // setInterval(() => { console.log(new Date().getTime()) }, 1000);
   }
-  onSubmit(form) {
-    if (this.pageIndex === 0) {
-      this.userService.login(this.user);
-    } else {
-      console.log('register')
-      this.userService.register(this.user).subscribe(res => console.log(res), err => console.log(err));
+  onSubmit() {
+    if (this.form.valid) {
+      this.pending = true;
+      this.authService.login(this.form.value).subscribe((res: User) => {
+        localStorage.setItem('user', JSON.stringify(res));
+        this.authService.state = res;
+        this.router.navigate([ROUTER_CONST.DASHBOARD]);
+        this.pending = false;
+      }, _ => {
+        this.pending = false;
+      })
     }
   }
-}
+  switch() {
+    this.action = this.action == 1 ? 2 : 1;
+  }
 
-export class User {
-  email: string;
-  password: string;
 }
 
