@@ -4,8 +4,11 @@ import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { AddExpenseComponent } from 'src/app/shared/components/add-expense/add-expense.component';
+import { ApartmentComponent } from 'src/app/shared/components/apartment/apartment.component';
 import { BlockComponent } from 'src/app/shared/components/block/block.component';
+import { ManagerListComponent } from 'src/app/shared/components/manager-list/manager-list.component';
 import { ProfileComponent } from 'src/app/shared/components/profile/profile.component';
+import { ServiceListComponent } from 'src/app/shared/components/service-list/service-list.component';
 import { AuthService } from 'src/app/shared/service/auth.service';
 import { DashboardService } from './dashboard.service';
 
@@ -55,6 +58,27 @@ export class DashboardPage implements OnInit, OnDestroy {
   async showBlockList() {
     const modal = await this.modalController.create({
       component: BlockComponent,
+      componentProps: {}
+    });
+    return await modal.present();
+  }
+  async showAptList() {
+    const modal = await this.modalController.create({
+      component: ApartmentComponent,
+      componentProps: {}
+    });
+    return await modal.present();
+  }
+  async showServiceList() {
+    const modal = await this.modalController.create({
+      component: ServiceListComponent,
+      componentProps: {}
+    });
+    return await modal.present();
+  }
+  async showEmployeeList() {
+    const modal = await this.modalController.create({
+      component: ManagerListComponent,
       componentProps: {}
     });
     return await modal.present();

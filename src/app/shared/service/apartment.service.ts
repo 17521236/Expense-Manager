@@ -12,4 +12,7 @@ export class ApartmentService {
   getOne(id) {
     return this.http.sendToServer("GET", API.APARTMENT.GET_ONE(id), null, null).pipe(shareReplay());
   }
+  getApartment(start = 0, limit = 5, name = '', blockId = null) {
+    return this.http.sendToServer("GET", API.APARTMENT.GET_ALL, null, null, { name, start, limit, blockId }).pipe(shareReplay());
+  }
 }

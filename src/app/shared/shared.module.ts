@@ -12,7 +12,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BlockComponent } from './components/block/block.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
-
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { NzEmptyModule } from 'ng-zorro-antd/empty'
+import { BlockDetailComponent } from './components/block-detail/block-detail.component';
+import { ApartmentDetailComponent } from './components/apartment-detail/apartment-detail.component';
+import { ApartmentComponent } from './components/apartment/apartment.component';
+import { BlockPipe } from './pipe/block.pipe';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { ServiceListComponent } from './components/service-list/service-list.component';
+import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
+import { ManagerListComponent } from './components/manager-list/manager-list.component';
 
 
 @NgModule({
@@ -27,18 +38,32 @@ import { InputComponent } from './components/input/input.component';
       BankingComponent,
       ProfileComponent,
       BlockComponent,
-      InputComponent
+      InputComponent,
+      PaginatorComponent,
+      BlockDetailComponent,
+      ApartmentDetailComponent,
+      ApartmentComponent,
+      BlockPipe,
+      DropdownComponent,
+      ServiceListComponent,
+      ServiceDetailComponent,
+      ManagerListComponent
     ],
   imports: [
     CommonModule,
     IonicModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzPaginationModule,
+    NzEmptyModule,
+    NzSelectModule,
   ],
   exports: [
     NumberPipe,
     VndPipe,
-    InputComponent
+    InputComponent,
+    PaginatorComponent,
+    BlockPipe
   ],
   entryComponents: [
     ProfileComponent,
@@ -46,7 +71,12 @@ import { InputComponent } from './components/input/input.component';
     MomoComponent,
     AddExpenseComponent,
     PaymentMethodComponent,
-    BlockComponent
+    BlockDetailComponent,
+    ApartmentDetailComponent,
+    ApartmentComponent,
+    ServiceListComponent,
+    ServiceDetailComponent,
+    ManagerListComponent
   ]
 })
 export class SharedModule { }

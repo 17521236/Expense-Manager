@@ -13,6 +13,6 @@ export class UserService {
     return this.http.sendToServer("POST", API.RESIDENT.LOGIN, user);
   }
   resetPassword(email) {
-    return this.http.sendToServer("POST", API.RESIDENT_ACCOUNT.RESET_PASS_BY_EMAIL, {email});
+    return this.http.sendToServer("POST", API.RESIDENT.RESET_PASS_BY_EMAIL, {email});
   }
 }

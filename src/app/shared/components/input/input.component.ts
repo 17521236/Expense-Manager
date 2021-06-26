@@ -18,6 +18,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   value;
   @Input() type;
   @Input() disabled: boolean;
+  @Input() classList;
 
   private onChange = (_: any) => { };
   private onTouched = (_: any) => { };

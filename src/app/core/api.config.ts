@@ -19,7 +19,9 @@ export const API = {
         GET_ONE: (id) => `/api/resident/${id}`,
         UPDATE: (id) => `/api/resident/${id}`,
         DELETE: (id) => `/api/resident/${id}`,
-        LOGIN: "/api/resident/mobile/login"
+        LOGIN: "/api/resident/mobile/login",
+        RESET_PASS_BY_EMAIL: `/api/resident/mobile/resetPassword`,
+        
     },
     VEHICLE: {
         GET_ALL: "/api/vehicle",
@@ -28,16 +30,16 @@ export const API = {
         UPDATE: (id) => `/api/vehicle/${id}`,
         DELETE: (id) => `/api/vehicle/${id}`
     },
-    RESIDENT_ACCOUNT: {
-        GET_ALL: "/api/resident-account",
-        ADD: (residentId) => `/api/resident-account/${residentId}`,
-        GET_ONE: (id) => `/api/resident-account/${id}`,
-        UPDATE: (id) => `/api/resident-account/${id}`,
-        RESET_PASS: (residentId) => `/api/resident-account/resetPass/${residentId}`,
-        RESET_PASS_BY_EMAIL: `/api/resident-account/resetPassByEmail/`,
-        DELETE: (id) => `/api/resident-account/${id}`,
-        LOGIN: '/api/resident-account/resident/login',
-    },
+    // RESIDENT_ACCOUNT: {
+    //     GET_ALL: "/api/resident-account",
+    //     ADD: (residentId) => `/api/resident-account/${residentId}`,
+    //     GET_ONE: (id) => `/api/resident-account/${id}`,
+    //     UPDATE: (id) => `/api/resident-account/${id}`,
+    //     RESET_PASS: (residentId) => `/api/resident-account/resetPass/${residentId}`,
+    //     RESET_PASS_BY_EMAIL: `/api/resident-account/resetPassByEmail/`,
+    //     DELETE: (id) => `/api/resident-account/${id}`,
+    //     LOGIN: '/api/resident-account/resident/login',
+    // },
     SERVICE: {
         GET_ALL: "/api/service",
         ADD: "/api/service",

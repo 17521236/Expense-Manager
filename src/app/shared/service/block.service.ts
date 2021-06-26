@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/shared/service/http.service';
 })
 export class BlockService {
 
-  constructor(private http: HttpService, private httpC: HttpClient) { }
+  constructor(private http: HttpService) { }
   getBlocks(name = '', start = 0, limit = 5) {
     return this.http.sendToServer("GET", API.BLOCK.GET_ALL, null, null, { name, start, limit }).pipe(shareReplay());
   }

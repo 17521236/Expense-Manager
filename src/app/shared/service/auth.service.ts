@@ -43,5 +43,7 @@ export class AuthService extends Store<User> {
     this.router.navigate([ROUTER_CONST.NOT_AUTH]);
     this.state = null;
   }
-
+  resetPassword(email) {
+    return this.userService.resetPassword(email);
+  }
 }

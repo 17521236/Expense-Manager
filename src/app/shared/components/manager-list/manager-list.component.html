@@ -4,27 +4,25 @@
       <ion-buttons slot="start">
         <ion-icon name="arrow-back-outline" (click)="cancel()"></ion-icon>
       </ion-buttons>
-      <ion-title class="fw-bold">Danh sách Block</ion-title>
+      <!-- <ion-title class="fw-bold">Danh sách Ban quản lý</ion-title> -->
     </ion-toolbar>
-    <!-- <div class="title-1 mb-32 mt-16 text-center">Danh sách Block</div> -->
-    <form [formGroup]="tableHelper.filterForm" (submit)="tableHelper.next()">
+    <div class="title-1 text-center">Danh sách Ban quản lý</div>
+    <!-- <form [formGroup]="tableHelper.filterForm" (submit)="tableHelper.next()">
       <div class="row">
         <div class="col-6">
           <app-input [classList]="'w-100'" [label]="'Tên'" formControlName="name" [placeholder]="'Seach by Name'"></app-input>
           <button type="submit" hidden></button>
         </div>        
-        <!-- <div class="ml-auto d-flex ai-end">
-          <i class='bx bx-search pointer refresh' style="font-size: 40px;" (click)="tableHelper.next()"></i>
-        </div> -->
       </div>
-    </form>
+    </form> -->
   </div>
   <div class="pr-24 pl-8">
     <ng-container *ngIf="(result$|async) as result">
       <ion-list>
-        <ion-item class="p-0" *ngFor="let i of result.items" (click)="viewDetail(i)">
+        <ion-item class="p-0" *ngFor="let i of result">
           <ion-avatar class="avatar" slot="start">
-            <img src="../../../../assets/buildings.svg">
+            <!-- <img src="../../../../assets/buildings.svg"> -->
+            <i class='bx bxs-user-circle font32'></i>
           </ion-avatar>
           <ion-label class="p-24 px-0 m-0">
             <div class="medium-body-text fw-bold color-nets-blue mb-8">{{i.name}}</div>
@@ -32,11 +30,11 @@
           </ion-label>
         </ion-item>
       </ion-list>
-      <nz-empty class="mt-48" *ngIf="result.total == 0" [nzNotFoundContent]="'No data'"
+      <nz-empty class="mt-48" *ngIf="total == 0" [nzNotFoundContent]="'No data'"
         nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg">
       </nz-empty>
       <div class="text-center mt-32">
-        <app-paginator [total]="result.total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
+        <app-paginator [total]="total" (onPageChange)="tableHelper.onPageChange($event)" [pageSize]="5">
         </app-paginator>
       </div>
     </ng-container>

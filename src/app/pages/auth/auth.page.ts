@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { interval } from 'rxjs';
 import { ROUTER_CONST } from 'src/app/core/router.config';
+import { SUCCESS_MSG } from 'src/app/core/success-msg';
 import { AuthService, User } from 'src/app/shared/service/auth.service';
 
 @Component({
@@ -23,7 +25,8 @@ export class AuthPage implements OnInit {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) { }
 
   ngOnInit() {
@@ -32,14 +35,23 @@ export class AuthPage implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       this.pending = true;
-      this.authService.login(this.form.value).subscribe((res: User) => {
-        localStorage.setItem('user', JSON.stringify(res));
-        this.authService.state = res;
-        this.router.navigate([ROUTER_CONST.DASHBOARD]);
-        this.pending = false;
-      }, _ => {
-        this.pending = false;
-      })
+      if (this.action == 1) {
+        this.authService.login(this.form.value).subscribe((res: User) => {
+          localStorage.setItem('user', JSON.stringify(res));
+          this.authService.state = res;
+          this.router.navigate([ROUTER_CONST.DASHBOARD]);
+          this.pending = false;
+        }, _ => {
+          this.pending = false;
+        })
+      }else{
+        this.authService.resetPassword(this.form.value['email']).subscribe(_ => {
+          this.toast.success(SUCCESS_MSG.reset_pass);
+          this.pending = false;
+        }, _ => {
+          this.pending = false;
+        })
+      }
     }
   }
   switch() {

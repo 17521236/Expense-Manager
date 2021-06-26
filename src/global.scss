@@ -71,12 +71,14 @@
 @import "dropdown.scss";
 @import "input.scss";
 @import "modal.scss";
-// @import "paginator.scss";
+@import "paginator.scss";
 @import "date-picker.scss";
 @import "flex.scss";
 @import "table.scss";
 @import "~ngx-toastr/toastr";
 @import "boxicons";
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "@fortawesome/fontawesome-free/css/solid.min.css";
 
 html,
 body {
@@ -192,6 +194,9 @@ hr {
 }
 .font20 {
     font-size: 20px;
+}
+.font32 {
+    font-size: 32px;
 }
 .d-fixed {
     position: fixed;
@@ -376,13 +381,17 @@ hr {
     padding: 48px;
 }
 
-.px-8{
+.px-8 {
     padding-left: 8px;
     padding-right: 8px;
 }
 .px-16 {
     padding-left: 16px;
     padding-right: 16px;
+}
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;
 }
 // margin
 .m-auto {
@@ -820,16 +829,23 @@ li:focus {
     padding: 40px;
 }
 
-
-.text-deep-blue{
+.text-deep-blue {
     color: rgb (6, 54, 134);
 }
-.avatar{
-    width: 50px; height: auto
+.avatar {
+    width: 50px;
+    height: auto;
 }
-.item-inner{
-    padding-right: 0;
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.detail-content {
+    border-radius: 16px;
+    border: $border-bluish-grey-10;
+    padding: 32px;
 }
 .item-native{
-    padding-left: 0;
+    padding-inline-start: 0px;
 }

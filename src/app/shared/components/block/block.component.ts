@@ -6,6 +6,7 @@ import { switchMap } from 'rxjs/operators';
 import { PaginatorEvent } from '../../model/paginator';
 import { TableHelper } from '../../model/table-helper';
 import { BlockService } from '../../service/block.service';
+import { BlockDetailComponent } from '../block-detail/block-detail.component';
 
 @Component({
   selector: 'app-block',
@@ -41,5 +42,14 @@ export class BlockComponent implements OnInit {
   }
   refreshFilter() {
 
+  }
+  async viewDetail(i) {
+    const modal = await this.modalController.create({
+      component: BlockDetailComponent,
+      componentProps: {
+        data: i
+      }
+    });
+    return await modal.present();
   }
 }
