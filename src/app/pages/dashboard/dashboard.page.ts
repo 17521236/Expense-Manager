@@ -5,10 +5,12 @@ import { Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { AddExpenseComponent } from 'src/app/shared/components/add-expense/add-expense.component';
 import { ApartmentComponent } from 'src/app/shared/components/apartment/apartment.component';
+import { BillComponent } from 'src/app/shared/components/bill/bill.component';
 import { BlockComponent } from 'src/app/shared/components/block/block.component';
 import { ManagerListComponent } from 'src/app/shared/components/manager-list/manager-list.component';
 import { ProfileComponent } from 'src/app/shared/components/profile/profile.component';
 import { ServiceListComponent } from 'src/app/shared/components/service-list/service-list.component';
+import { VehicleComponent } from 'src/app/shared/components/vehicle/vehicle.component';
 import { AuthService } from 'src/app/shared/service/auth.service';
 import { DashboardService } from './dashboard.service';
 
@@ -83,4 +85,23 @@ export class DashboardPage implements OnInit, OnDestroy {
     });
     return await modal.present();
   }
+
+  async showBIll() {
+    const modal = await this.modalController.create({
+      component: BillComponent,
+      componentProps: {}
+    });
+    return await modal.present();
+  }
+
+
+  async showVehicleList() {
+    const modal = await this.modalController.create({
+      component: VehicleComponent,
+      componentProps: {}
+    });
+    return await modal.present();
+  }
+
+
 }

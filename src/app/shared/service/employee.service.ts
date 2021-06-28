@@ -12,4 +12,7 @@ export class EmployeeService {
   getList(name = '', start = 0, limit = 5) {
     return this.http.sendToServer("GET", API.EMPLOYEE.GET_ALL, null, null, { name, start, limit }).pipe(shareReplay());
   }
+  getEmployeeById(id){
+    return this.http.sendToServer("GET",API.EMPLOYEE.GET_ONE(id)).pipe(shareReplay());
+  }
 }

@@ -10,6 +10,11 @@ export class BillService {
 
   constructor(private http: HttpService) { }
  
+
+  getBillByAptId(id){
+    return this.http.sendToServer("GET",API.BILL.GET_LIST(id)).pipe(shareReplay());
+  }
+
   getOne(id) {
     return this.http.sendToServer("GET", API.BILL.GET_ONE(id), null, null).pipe(shareReplay());
   }

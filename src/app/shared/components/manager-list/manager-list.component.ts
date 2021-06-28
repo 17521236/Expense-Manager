@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { TableHelper } from '../../model/table-helper';
 import { EmployeeService } from '../../service/employee.service';
+import { ManagerDetailComponent } from '../manager-detail/manager-detail.component';
 
 @Component({
   selector: 'app-manager-list',
@@ -42,13 +43,13 @@ export class ManagerListComponent implements OnInit {
   refreshFilter() {
 
   }
-  // async viewDetail(i) {
-  //   const modal = await this.modalController.create({
-  //     component: BlockDetailComponent,
-  //     componentProps: {
-  //       data: i
-  //     }
-  //   });
-  //   return await modal.present();
-  // }
+  async viewDetail(i) {
+    const modal = await this.modalController.create({
+      component: ManagerDetailComponent,
+      componentProps: {
+        data: i
+      }
+    });
+    return await modal.present();
+  }
 }

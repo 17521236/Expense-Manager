@@ -10,6 +10,7 @@ import { BlockService } from '../../service/block.service';
 export class BlockDetailComponent implements OnInit {
   data;
   detail$;
+ 
   constructor(
     private modalController: ModalController,
     private blockService: BlockService

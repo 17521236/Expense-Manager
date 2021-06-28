@@ -33,10 +33,12 @@ export class AuthService extends Store<User> {
     super(null);
   }
   readonly residentId$ = this.state$.pipe(map((state: User) => state?._id));
+  readonly aptId$ = this.state$.pipe(map((state:User) => state?.aptId))
   // login
   login(data) {
     return this.userService.login(data);
   }
+
 
   logout() {
     localStorage.removeItem('user');

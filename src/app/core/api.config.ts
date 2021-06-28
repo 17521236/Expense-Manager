@@ -25,6 +25,7 @@ export const API = {
     },
     VEHICLE: {
         GET_ALL: "/api/vehicle",
+        GETLIST:(id) => `/api/vehicle/mobile/${id}`,
         ADD: "/api/vehicle",
         GET_ONE: (id) => `/api/vehicle/${id}`,
         UPDATE: (id) => `/api/vehicle/${id}`,
@@ -50,6 +51,7 @@ export const API = {
     BILL: {
         GET_ALL: "/api/bill",
         ADD: "/api/bill",
+        GET_LIST:(id) => `/api/bill/mobile/${id}`,
         GET_ONE: (id) => `/api/bill/${id}`,
         UPDATE: (id) => `/api/bill/${id}`,
         DELETE: (id) => `/api/bill/${id}`,

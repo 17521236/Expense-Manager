@@ -24,6 +24,10 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { ManagerListComponent } from './components/manager-list/manager-list.component';
+import { ManagerDetailComponent } from './components/manager-detail/manager-detail.component';
+import { BillComponent } from './components/bill/bill.component';
+import { VehicleComponent } from './components/vehicle/vehicle.component';
+import { VehicleDetailComponent } from './components/vehicle-detail/vehicle-detail.component';
 
 
 @NgModule({
@@ -47,7 +51,11 @@ import { ManagerListComponent } from './components/manager-list/manager-list.com
       DropdownComponent,
       ServiceListComponent,
       ServiceDetailComponent,
-      ManagerListComponent
+      ManagerListComponent,
+      ManagerDetailComponent,
+      BillComponent,
+      VehicleComponent,
+      VehicleDetailComponent
     ],
   imports: [
     CommonModule,
